@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Guess the button!</title>
+    <style type=text/css>
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            color: black;
+        }
+        div {
+            text-align: center;
+            font-size: 40px;
+            margin-top: 100px;
+        }
+        button {
+            border-style: solid;
+            border-width: 5px;
+            border-color: black;
+            padding: 15px;
+            border-radius: 30px;
+        }
+        .button12 {
+            text-align: right;
+            background-color: blue;
+            color:black;
+            border-radius: 10px;
+        }
+        .new {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="font-size: 300%;"><strong>Guess the button!</strong></h1>
+    <div class="px-10 mt=10">
+        <button  id="button1" class="buttn" onclick="myFunction(this.id)">Button 1</button>
+        <button  id="button2" class="buttn" onclick="myFunction(this.id)">Button 2</button>
+        <button  id="button3" class="buttn" onclick="myFunction(this.id)">Button 3</button>
+    </div>
+
+
+    <div>
+        <p>The winning button is: <span id="number"></span></p>
+        <p id="message"></p>
+    </div>
+    <div class="new">
+    <button class="button12" type="button" onClick="window.location.reload();">Restart</button>
+    </div>
+
+    <script>
+
+        function myFunction(id) {
+            var x = Math.floor((Math.random() * 3) + 1);
+            if (id === "button" + x) {
+                document.getElementById("number").innerHTML = x;
+                document.getElementById("message").innerHTML = "You won!";
+                document.getElementById(id).style.backgroundColor="green";
+
+
+            } else {
+                document.getElementById("number").innerHTML = x;
+                document.getElementById("message").innerHTML = "You lose...";
+                document.getElementById(id).style.backgroundColor="red";
+                document.getElementById("butn" + x).style.backgroundColor="blue";
+            }
+        }
+
+    </script>
+</body>
+</html>
